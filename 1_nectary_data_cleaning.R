@@ -48,11 +48,18 @@ glimpse(ionipertube)
 glimpse(odorpertube)
 
 #just taking a look at things before truncating
-# I want to see if things flatten out by day 19 for datasets longer tha day 19
-par(mfrow=c(2,1))
-plot(x= ioniper$Day1, y= ioniper$Bud.1, type = "l", xlim= c(0, 23), xaxs = "i")
-plot(x= ioniper$Day1, y= ioniper$Bud.2, type = "l", xlim= c(0, 23), xaxs = "i")
+# I want to see if things flatten out by day 19 for datasets longer than day 19
 
+plot(x= ioniper$Day1, y= ioniper$Bud.1, type = "l", xlim= c(0, 23), ylim= c(0,30), xaxs = "i",
+     xlab = "Days", ylab = "Growth (mm)", main = "P. Ionidiflorum Perianth Growth")
+lines(ioniper$Bud.1)
+lines(ioniper$Bud.2)
+lines(ioniper$Bud.3)
+lines(ioniper$Bud.4)
+lines(ioniper$Bud.5)
+lines(ioniper$Bud.10)
+lines(ioniper$Bud.15)
+lines(ioniper$Bud.20)
 
 #this is concerning given things have not flattened out, is there data missing?
 

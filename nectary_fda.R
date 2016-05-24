@@ -8,6 +8,7 @@
 ## Applying FDA to growth patterns of Pelargonium nectaries and floral structures
 ## ******************************************************************** ##
 
+####Set Up####
 #Set working directory
 if(Sys.info()['user']=='henryfrye') setwd("/Users/henryfrye/Dropbox/IntellectualEndeavours/UConn/Research/nectaries")
 
@@ -17,86 +18,88 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
- #Read in nectary data
-ioniper <- read.csv(file = "p_ioni_perianth.csv")
-odorper <- read.csv(file = "p_odor_perianth.csv")
-ionitube <- read.csv(file = "p_ioni_tube.csv")
-odortube <- read.csv(file = "p_odor_tube.csv")
-ionipertube <- read.csv(file = "p_ioni_perianth_tube.csv")
-odorpertube <- read.csv(file = "p_odor_perianth_tube.csv")
+#Read in nectary data
+#ioniper <- read.csv(file = "p_ioni_perianth.csv")
+#odorper <- read.csv(file = "p_odor_perianth.csv")
+#ionitube <- read.csv(file = "p_ioni_tube.csv")
+#odortube <- read.csv(file = "p_odor_tube.csv")
+#ionipertube <- read.csv(file = "p_ioni_perianth_tube.csv")
+#odorpertube <- read.csv(file = "p_odor_perianth_tube.csv")
 
 
 #Convert to matrices
-ionipermat <- as.matrix(ioniper)
-odorpermat <- as.matrix(odorper)
-ionitubmat <- as.matrix(ionitube) 
-odortubmat <- as.matrix(odortube)
-ionipertubmat <- as.matrix(ionipertube)
-odorpertubmat <- as.matrix(odorpertube)
+ionipermat <- data.matrix(ioniper, rownames.force = TRUE)
+odorpermat <- data.matrix(odorper, rownames.force = TRUE)
+ionitubmat <- data.matrix(ionitube, rownames.force = TRUE) 
+odortubmat <- data.matrix(odortube, rownames.force = TRUE)
+ionipertubmat <- data.matrix(ionipertube, rownames.force = TRUE)
+odorpertubmat <- data.matrix(odorpertube, rownames.force = TRUE)
 
+
+####Functional Object Creation####
 #ionipermat calculations
-days=0:(nrow(ionipermat)-1)
-(ndays <- length(days))
-(ncasem <- ncol(ionipermat))
-(dayRng <- range(days))
-daysfine=seq(dayRng[1],dayRng[2],length=44)
-rng = c(0,22)
-knots  <- 0:22
-norder <- 8
-nbasis <- length(knots) + norder - 2
-hgtbasis <- create.bspline.basis(range(knots), nbasis, norder, knots)
+days1=0:(nrow(ionipermat)-1)
+(ndays1 <- length(days1))
+(ncasem1 <- ncol(ionipermat))
+(dayRng1 <- range(days1))
+daysfine1=seq(dayRng1[1],dayRng1[2],length=44)
+rng1 = c(0,22)
+knots1  <- 0:22
+norder1 <- 8
+nbasis1 <- length(knots1) + norder1 - 2
+hgtbasis1 <- create.bspline.basis(range(knots1), nbasis1, norder1, knots1)
 Lfdobj <- 4
 lambda <- 10^(-0.5)
-growfdPar <- fdPar(hgtbasis, Lfdobj, lambda)
-ioniperianthfd <- smooth.basis(knots, ionipermat, growfdPar)$fd
+growfdPar1 <- fdPar(hgtbasis1, Lfdobj, lambda)
+ioniperianthfd <- smooth.basis(knots1, ionipermat, growfdPar1)$fd
 
 #odorpermat calculations
-days=0:(nrow(odorpermat)-1)
-(ndays <- length(days))
-(ncasem <- ncol(odorpermat))
-(dayRng <- range(days))
-daysfine=seq(dayRng[1],dayRng[2],length=46)
-rng = c(0,23)
-knots  <- 0:23
-norder <- 8
-nbasis <- length(knots) + norder - 2
-hgtbasis <- create.bspline.basis(range(knots), nbasis, norder, knots)
+days2=0:(nrow(odorpermat)-1)
+(ndays2 <- length(days2))
+(ncasem2 <- ncol(odorpermat))
+(dayRng2 <- range(days2))
+daysfine2=seq(dayRng2[1],dayRng2[2],length=46)
+rng2 = c(0,23)
+knots2  <- 0:23
+norder2 <- 8
+nbasis2 <- length(knots2) + norder2 - 2
+hgtbasis2 <- create.bspline.basis(range(knots2), nbasis2, norder2, knots2)
 Lfdobj <- 4
 lambda <- 10^(-0.5)
-growfdPar <- fdPar(hgtbasis, Lfdobj, lambda)
-odorperianthfd <- smooth.basis(knots, odorpermat, growfdPar)$fd
+growfdPar2 <- fdPar(hgtbasis2, Lfdobj, lambda)
+odorperianthfd <- smooth.basis(knots2, odorpermat, growfdPar2)$fd
 
 #ionitubmat calculations
-days=0:(nrow(ionitubmat)-1)
-(ndays <- length(days))
-(ncasem <- ncol(ionitubmat))
-(dayRng <- range(days))
-daysfine=seq(dayRng[1],dayRng[2],length=36)
-rng = c(0,18)
-knots  <- 0:18
-norder <- 8
-nbasis <- length(knots) + norder - 2
-hgtbasis <- create.bspline.basis(range(knots), nbasis, norder, knots)
+days3=0:(nrow(ionitubmat)-1)
+(ndays3 <- length(days3))
+(ncasem3 <- ncol(ionitubmat))
+(dayRng3 <- range(days3))
+daysfine3=seq(dayRng3[1],dayRng3[2],length=36)
+rng3 = c(0,18)
+knots3 <- 0:18
+norder3 <- 8
+nbasis3 <- length(knots3) + norder3 - 2
+hgtbasis3 <- create.bspline.basis(range(knots3), nbasis3, norder3, knots3)
 Lfdobj <- 4
 lambda <- 10^(-0.5)
-growfdPar <- fdPar(hgtbasis, Lfdobj, lambda)
-ionitubefd <- smooth.basis(knots, ionitubmat, growfdPar)$fd
+growfdPar3 <- fdPar(hgtbasis3, Lfdobj, lambda)
+ionitubefd <- smooth.basis(knots3, ionitubmat, growfdPar3)$fd
 
 #odortubmat calculations
-days=0:(nrow(odortubmat)-1)
-(ndays <- length(days))
-(ncasem <- ncol(odortubmat))
-(dayRng <- range(days))
-daysfine=seq(dayRng[1],dayRng[2],length=36)
-rng = c(0,18)
-knots  <- 0:18
-norder <- 8
-nbasis <- length(knots) + norder - 2
-hgtbasis <- create.bspline.basis(range(knots), nbasis, norder, knots)
+days4=0:(nrow(odortubmat)-1)
+(ndays4 <- length(days4))
+(ncasem4 <- ncol(odortubmat))
+(dayRng4 <- range(days4))
+daysfine4=seq(dayRng4[1],dayRng4[2],length=36)
+rng4 = c(0,18)
+knots4  <- 0:18
+norder4 <- 8
+nbasis4 <- length(knots4) + norder4 - 2
+hgtbasis4 <- create.bspline.basis(range(knots4), nbasis4, norder4, knots4)
 Lfdobj <- 4
 lambda <- 10^(-0.5)
-growfdPar <- fdPar(hgtbasis, Lfdobj, lambda)
-odortubefd <- smooth.basis(knots, odortubmat, growfdPar)$fd
+growfdPar4 <- fdPar(hgtbasis4, Lfdobj, lambda)
+odortubefd <- smooth.basis(knots4, odortubmat, growfdPar4)$fd
 
 
 #ionipertubefd <- smooth.basis(knots, ionipertubmat, growfdPar)$fd
@@ -105,26 +108,34 @@ odortubefd <- smooth.basis(knots, odortubmat, growfdPar)$fd
 
 
 
-#Setting fitting and derivatives
-ioniperianthfit <- eval.fd(days, ioniperianthfd)
-ioniperianthhat <- eval.fd(daysfine, ioniperianthfd)
-ioniper.velmhat <- eval.fd(daysfine, ioniperianthfd, 1)
-ioniper.accmhat <- eval.fd(daysfine, ioniperianthfd, 2)
+####Setting, fitting and derivatives####
+ioniperianthfit <- eval.fd(days1, ioniperianthfd)
+ioniper.vel <- eval.fd(days1, ioniperianthfd, 1)
+ioniper.acc <- eval.fd(days1, ioniperianthfd, 2)
+#ioniperianthhat <- eval.fd(daysfine1, ioniperianthfd)
+#ioniper.velmhat <- eval.fd(daysfine1, ioniperianthfd, 1)
+#ioniper.accmhat <- eval.fd(daysfine1, ioniperianthfd, 2)
 
-odorperianthfit <- eval.fd(days, odorperianthfd)
-odorperianthhat <- eval.fd(daysfine, odorperianthfd)
-odorper.velmhat <- eval.fd(daysfine, odorperianthfd, 1)
-odorper.accmhat <- eval.fd(daysfine, odorperianthfd, 2)
+odorperianthfit <- eval.fd(days2, odorperianthfd)
+odorper.vel <- eval.fd(days2, odorperianthfd, 1)
+odorper.acc <- eval.fd(daysfine2, odorperianthfd, 2)
+#odorperianthhat <- eval.fd(daysfine2, odorperianthfd)
+#odorper.velmhat <- eval.fd(daysfine2, odorperianthfd, 1)
+#odorper.accmhat <- eval.fd(daysfine2, odorperianthfd, 2)
 
-ionitubefit <- eval.fd(days, ionitubefd)
-ionitubehat <- eval.fd(daysfine, ionitubefd)
-ionitub.velmhat <- eval.fd(daysfine, ionitubefd, 1)
-ionitub.accmhat <- eval.fd(daysfine, ionitubefd, 2)
+ionitubefit <- eval.fd(days3, ionitubefd)
+ionitub.vel <- eval.fd(days3, ionitubefd, 1)
+ionitub.acc <- eval.fd(days3, ionitubefd, 2)
+#ionitubehat <- eval.fd(daysfine3, ionitubefd)
+#ionitub.velmhat <- eval.fd(daysfine3, ionitubefd, 1)
+#ionitub.accmhat <- eval.fd(daysfine3, ionitubefd, 2)
 
-odortubefit <- eval.fd(days, odortubefd)
-odortubehat <- eval.fd(daysfine, odortubefd)
-odortub.velmhat <- eval.fd(daysfine, odortubefd, 1)
-odortub.accmhat <- eval.fd(daysfine, odortubefd, 2)
+odortubefit <- eval.fd(days4, odortubefd)
+odortub.vel <- eval.fd(days4, odortubefd, 1)
+odortub.acc <- eval.fd(days4, odortubefd, 2)
+#odortubehat <- eval.fd(daysfine4, odortubefd)
+#odortub.velmhat <- eval.fd(daysfine4, odortubefd, 1)
+#odortub.accmhat <- eval.fd(daysfine4, odortubefd, 2)
 
 #ionipertubefit <- eval.fd(days, ionipertubefd)
 #ionipertubehat <- eval.fd(daysfine, ionipertubefd)
@@ -136,7 +147,7 @@ odortub.accmhat <- eval.fd(daysfine, odortubefd, 2)
 #odorpertub.velmhat <- eval.fd(daysfine, odorpertubefd, 1)
 #odorpertub.accmhat <- eval.fd(daysfine, odorpertubefd, 2)
 
-#Data exploration
+####Data Exploration####
 
 mean.ioniper <- mean(ioniperianthfd) 
 mean.odorper <- mean(odorperianthfd)
@@ -145,20 +156,25 @@ mean.odortube <- mean(odortubefd)
 #mean.ionipertube <- mean(ionipertubefd)
 #mean.odorpertube <- mean(odorpertubefd)
 
+#Mean velocity growth graphs for both tube and perianth
+#Create means for vel for everthing
 
-#basic plots in base R
-pdf(file = '/figure/mean_growth.pdf')
-plot(mean.ioniper, col= "red", ylim = c(0, 30))
-lines(mean.odorper, col= "yellow")
-lines(mean.ionitube, col= "purple")
-lines(mean.odortube, col= "blue")
-dev.off()
-system('open ../figure/mean_growth.pdf')
+mean.ioniper.vel <- ioniper.vel[,mean(2:21)]
+mean.odorper.vel <- odorper.vel[,mean(2:21)]
+mean.ionitub.vel <- ionitub.vel[,mean(2:21)]
+mean.odortub.vel <- odortub.vel[,mean(2:21)]
 
 
+mean.ioniper.acc <- ioniper.acc[,mean(2:21)]
+mean.odorper.acc <- odorper.acc[,mean(2:21)]
+mean.ionitub.acc <- ionitub.acc[,mean(2:21)]
+mean.odortub.acc <- odortub.acc[,mean(2:21)]
 
-#lets make plots of means and individual replicates with ggplot
-#ggplot(ionipercoef, )
+
+
+
+
+
 
 
 
@@ -192,7 +208,7 @@ system('open ioni_perianth_compare_v1.pdf')
 
 
 
-###Function Scratchwork
+####Function Scratchwork####
 
 
 #Set objects for function conversion
