@@ -118,7 +118,7 @@ ioniper.acc <- eval.fd(days1, ioniperianthfd, 2)
 
 odorperianthfit <- eval.fd(days2, odorperianthfd)
 odorper.vel <- eval.fd(days2, odorperianthfd, 1)
-odorper.acc <- eval.fd(daysfine2, odorperianthfd, 2)
+odorper.acc <- eval.fd(days2, odorperianthfd, 2)
 #odorperianthhat <- eval.fd(daysfine2, odorperianthfd)
 #odorper.velmhat <- eval.fd(daysfine2, odorperianthfd, 1)
 #odorper.accmhat <- eval.fd(daysfine2, odorperianthfd, 2)
@@ -171,43 +171,6 @@ mean.ionitub.acc <- ionitub.acc[,mean(2:21)]
 mean.odortub.acc <- odortub.acc[,mean(2:21)]
 
 
-
-
-
-
-
-
-
-
-
-# Creating graphs (using Cory Merow's code here)
-# compare flowers
-pdf('ioni_perianth_compare_v1.pdf',w=6,h=8)
-par(mfrow=c(3,1),mar=c(4,3,3,1))
-# mean
-plot(daysfine, ioniperianthhat[,1], ylim=c(0,max(ionipermat)), xlab="days",bty='n',las=1,main="Growth",typ='l')
-for (i in 2:nbudm) {lines(daysfine, ioniperianthhat[,i], col=i)}
-#legend('bottomright',legend=colnames(commspec),bty='n',col=1:nbudm,lty=1, cex=1)
-
-# vel
-#ind <- velmhat[,i] >= 0 & velmhat[,i] <= 20
-plot(daysfine, velmhat[,i], type="l", xlab="days", ylab="", main="Growth Velocity",bty='n',ylim=c(-2,2))
-for (i in 2:nbudm) {lines(daysfine,  velmhat[,i], col=i)}
-abline(h=0, lty=2,col='grey50')
-
-# accel
-#ind <- accmhat[,i] >= -6 & accmhat[,i] <= 6
-plot(daysfine, accmhat[,i], type="l", xlab="days", ylab="", main="Growth Acceleration",ylim=c(-0.5,0.5),bty='n')
-for (i in 2:nbudm) {lines(daysfine,  accmhat[,i], col=i)}
-abline(h=0, lty=2,col='grey50')
-
-dev.off()  
-system('open ioni_perianth_compare_v1.pdf')
-
-
-
-
-
 ####Function Scratchwork####
 
 
@@ -238,3 +201,4 @@ functional_obj_conv <- function(x,y) {
   return(list(days, ndays, knots, nbasis, lambda))
 }
 
+dim(ionipermat)
