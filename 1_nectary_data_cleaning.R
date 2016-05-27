@@ -22,30 +22,21 @@ ioniper <- read.csv(file = "../data_raw/p_ioni_perianth.csv")
 odorper <- read.csv(file = "../data_raw/p_odor_perianth.csv")
 ionitube <- read.csv(file = "../data_raw/p_ioni_tube.csv")
 odortube <- read.csv(file = "../data_raw/p_odor_tube.csv")
-ionipertube <- read.csv(file = "../data_raw/p_ioni_perianth_tube.csv")
-odorpertube <- read.csv(file = "../data_raw/p_odor_perianth_tube.csv")
+
+#ionipertube combined perianth
+#odorpertube comined tube
 
 #clean data up and set row names as the days for growth
 ioniper <-  ioniper %>% add_rownames(var = "Day1" )%>%
   select(-Day)
 odorper <-  odorper %>% add_rownames(var = "Day1" )%>%
   select(-Day)
-ionitube <- ionitube %>% add_rownames(var = "Day1" )%>%
-  select(-Day)
-odortube <- odortube %>% add_rownames(var = "Day1" )%>%
-  select(-Day)
-ionipertube <- ionipertube %>% add_rownames(var = "Day1" )%>%
-  select(-Day)
-odorpertube <- odorpertube %>% add_rownames(var= "Day1" )%>%
-  select(-Day)
+
 
 # just taking a look
-#glimpse(ioniper)
-#glimpse(odorper)
-#glimpse(ionitube)
-#glimpse(odortube)
-#glimpse(ionipertube)
-#glimpse(odorpertube)
-
+glimpse(ioniper)
+glimpse(odorper)
+glimpse(ionitube)
+glimpse(odortube)
 
 

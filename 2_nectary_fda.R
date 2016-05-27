@@ -32,19 +32,17 @@ ionipermat <- data.matrix(ioniper, rownames.force = TRUE)
 odorpermat <- data.matrix(odorper, rownames.force = TRUE)
 ionitubmat <- data.matrix(ionitube, rownames.force = TRUE) 
 odortubmat <- data.matrix(odortube, rownames.force = TRUE)
-ionipertubmat <- data.matrix(ionipertube, rownames.force = TRUE)
-odorpertubmat <- data.matrix(odorpertube, rownames.force = TRUE)
 
 
 ####Functional Object Creation####
 #ionipermat calculations
-days1=0:(nrow(ionipermat)-1)
+days1=1:(nrow(ionipermat))
 (ndays1 <- length(days1))
 (ncasem1 <- ncol(ionipermat))
 (dayRng1 <- range(days1))
 daysfine1=seq(dayRng1[1],dayRng1[2],length=44)
-rng1 = c(0,22)
-knots1  <- 0:22
+rng1 = c(1,29)
+knots1  <- 1:29
 norder1 <- 8
 nbasis1 <- length(knots1) + norder1 - 2
 hgtbasis1 <- create.bspline.basis(range(knots1), nbasis1, norder1, knots1)
@@ -54,13 +52,13 @@ growfdPar1 <- fdPar(hgtbasis1, Lfdobj, lambda)
 ioniperianthfd <- smooth.basis(knots1, ionipermat, growfdPar1)$fd
 
 #odorpermat calculations
-days2=0:(nrow(odorpermat)-1)
+days2=1:(nrow(odorpermat))
 (ndays2 <- length(days2))
 (ncasem2 <- ncol(odorpermat))
 (dayRng2 <- range(days2))
 daysfine2=seq(dayRng2[1],dayRng2[2],length=46)
-rng2 = c(0,23)
-knots2  <- 0:23
+rng2 = c(1,29)
+knots2  <- 1:29
 norder2 <- 8
 nbasis2 <- length(knots2) + norder2 - 2
 hgtbasis2 <- create.bspline.basis(range(knots2), nbasis2, norder2, knots2)
@@ -70,13 +68,13 @@ growfdPar2 <- fdPar(hgtbasis2, Lfdobj, lambda)
 odorperianthfd <- smooth.basis(knots2, odorpermat, growfdPar2)$fd
 
 #ionitubmat calculations
-days3=0:(nrow(ionitubmat)-1)
+days3=5:29
 (ndays3 <- length(days3))
 (ncasem3 <- ncol(ionitubmat))
 (dayRng3 <- range(days3))
 daysfine3=seq(dayRng3[1],dayRng3[2],length=36)
-rng3 = c(0,18)
-knots3 <- 0:18
+rng3 = c(5,29)
+knots3 <- 5:29
 norder3 <- 8
 nbasis3 <- length(knots3) + norder3 - 2
 hgtbasis3 <- create.bspline.basis(range(knots3), nbasis3, norder3, knots3)
@@ -86,13 +84,13 @@ growfdPar3 <- fdPar(hgtbasis3, Lfdobj, lambda)
 ionitubefd <- smooth.basis(knots3, ionitubmat, growfdPar3)$fd
 
 #odortubmat calculations
-days4=0:(nrow(odortubmat)-1)
+days4=5:29
 (ndays4 <- length(days4))
 (ncasem4 <- ncol(odortubmat))
 (dayRng4 <- range(days4))
 daysfine4=seq(dayRng4[1],dayRng4[2],length=36)
-rng4 = c(0,18)
-knots4  <- 0:18
+rng4 = c(5,29)
+knots4  <- 5:29
 norder4 <- 8
 nbasis4 <- length(knots4) + norder4 - 2
 hgtbasis4 <- create.bspline.basis(range(knots4), nbasis4, norder4, knots4)

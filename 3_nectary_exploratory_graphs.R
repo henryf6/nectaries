@@ -34,7 +34,7 @@ legend("topleft", legend = c("ioni tube", "odor tube", "ioni perianth", "odor pe
 
 ####Mean velocity graphs for both tube and perianth####
 
-plot(mean.ioniper.vel, type="l", lwd=2, col= "red", ylim = c(-.5, 5),
+plot(mean.ioniper.vel, type="l", lwd=2, col= "red", ylim = c(-1, 5),
      ylab = " Change in Growth (mm) per Day", xlab = "Days",
      main="Mean Growth Velocity Curves for P. ionidiflorum and  P. odoratissimum of perianth and tube length "
 )
@@ -50,7 +50,7 @@ legend("topleft", legend = c("ioni tube", "odor tube", "ioni perianth", "odor pe
 
 ####Mean acceleration graphs for both tube and perianth####
 
-plot(mean.ioniper.acc, type="l", lwd=2, col= "red", ylim = c(-.5, 3),
+plot(mean.ioniper.acc, type="l", lwd=2, col= "red", ylim = c(-2, 3),
      ylab = "Growth Acceleration", xlab = "Days",
      main="Mean Growth Acceleration Curves for P. ionidiflorum and  P. odoratissimum of perianth and tube length ")
 lines(mean.odorper.acc, lwd=2, col= "black")
