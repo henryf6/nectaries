@@ -124,6 +124,11 @@ odorper.acc <- eval.fd(days2, odorperianthfd, 2)
 ionitubefit <- eval.fd(days3, ionitubefd)
 ionitub.vel <- eval.fd(days3, ionitubefd, 1)
 ionitub.acc <- eval.fd(days3, ionitubefd, 2)
+#Fixing Day sequence to start at day 5
+ionitub.vel[,1] <- seq(5,29)
+ionitub.acc[,1] <- seq(5,29)
+
+
 #ionitubehat <- eval.fd(daysfine3, ionitubefd)
 #ionitub.velmhat <- eval.fd(daysfine3, ionitubefd, 1)
 #ionitub.accmhat <- eval.fd(daysfine3, ionitubefd, 2)
@@ -131,6 +136,10 @@ ionitub.acc <- eval.fd(days3, ionitubefd, 2)
 odortubefit <- eval.fd(days4, odortubefd)
 odortub.vel <- eval.fd(days4, odortubefd, 1)
 odortub.acc <- eval.fd(days4, odortubefd, 2)
+#Fixing Day sequence to start at day 5
+odortub.vel[,1] <- seq(5,29)
+odortub.acc[,1] <- seq(5,29)
+
 #odortubehat <- eval.fd(daysfine4, odortubefd)
 #odortub.velmhat <- eval.fd(daysfine4, odortubefd, 1)
 #odortub.accmhat <- eval.fd(daysfine4, odortubefd, 2)
@@ -200,3 +209,11 @@ functional_obj_conv <- function(x,y) {
 }
 
 dim(ionipermat)
+
+
+
+
+
+
+
+
