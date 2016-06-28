@@ -369,6 +369,55 @@ dev.off()
 
 system('open ../figures/mean_phase_plot.pdf')
 
+####Mean Growth by strucutre with CI's####
+pdf("../figures/mean_growth_CI_structures.pdf", width = 10, height = 7)
+par(mfrow=c(2,1), family="Palatino")
+plot(mean.ioniper, lwd=2, col= "red", ylim = c(-.5, 30),
+     ylab = "Growth (mm)", xlab = "Days",
+     main="Mean Growth Curves for Perianth with Confidence Intervals")
+lines(mean.odorper, lwd=2, col= "black")
+lines(mean.ioniper + 2*sioniperd, col="red", lty=3)
+lines(mean.ioniper - 2*sioniperd, col="red", lty=3)
+lines(mean.odorper + 2*sodorperd, col="black", lty=3)
+lines(mean.odorper - 2*sodorperd, col="black", lty=3)
+abline(h=0, col="black")
+grid()
+legend("topleft", legend = c("ioni perianth", "odor perianth"), 
+       lty = 1, lwd = 2, col = c("red", "black"), ncol = 2,
+       bty = "n", cex = 0.8,
+       text.col = c("red", "black"), inset= 0.1)
+
+
+
+plot(mean.ionitube, lwd=2, col= "purple", ylim = c(-.5, 40),
+     ylab = "Growth (mm)", xlab = "Days",
+     main="Mean Growth Curves for Tube Length with Confidence Intervals")
+lines(mean.odortube, lwd=2, col= "blue")
+lines(mean.ionitube + 2*sionitubd, col= "purple", lty=3)
+lines(mean.ionitube - 2*sionitubd, col= "purple", lty=3)
+lines(mean.odortube + 2*sodortubd, col= "blue", lty=3)
+lines(mean.odortube - 2*sodortubd, col= "blue", lty=3)
+abline(h=0, col="black")
+grid()
+legend("topleft", legend = c("ioni tube", "odor tube"), 
+       lty = 1, lwd = 2, col = c("purple", "blue"), ncol = 2,
+       bty = "n", cex = 0.8,
+       text.col = c("purple", "blue"), inset= 0.1)
+dev.off()
+system('open ../figures/mean_growth_CI_structures.pdf')
+
+
+
+
+####Growth vs Growth plots####
+# tube on y and perianth on x
+#pdf('../figures/ioni_tube_per_comp.pdf',w=6,h=8)
+#par(mfrow=c(1,1))
+#plot(mean.ioniper[1:25],mean.ionitube, type="l")
+
+#dev.off()
+
+#system('open ../figures/ioni_tube_per_comp.pdf')
 
 
 

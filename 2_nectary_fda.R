@@ -13,10 +13,10 @@
 if(Sys.info()['user']=='henryfrye') setwd("/Users/henryfrye/Dropbox/IntellectualEndeavours/UConn/Research/nectaries")
 
 #import libraries
-library(fda)
-library(dplyr)
-library(tidyr)
-library(ggplot2)
+#library(fda)
+#library(dplyr)
+#library(tidyr)
+#library(ggplot2)
 
 #Read in nectary data
 #ioniper <- read.csv(file = "p_ioni_perianth.csv")
@@ -166,16 +166,41 @@ mean.odortube <- mean(odortubefd)
 #Mean velocity growth graphs for both tube and perianth
 #Create means for vel for everthing
 
-mean.ioniper.vel <- ioniper.vel[,mean(2:21)]
-mean.odorper.vel <- odorper.vel[,mean(2:21)]
-mean.ionitub.vel <- ionitub.vel[,mean(2:21)]
-mean.odortub.vel <- odortub.vel[,mean(2:21)]
+mean.ioniper.vel <- rowMeans(ioniper.vel[, 2:21])
+mean.odorper.vel <- rowMeans(odorper.vel[, 2:21])
+mean.ionitub.vel <- rowMeans(ionitub.vel[, 2:21])
+mean.odortub.vel <- rowMeans(odortub.vel[, 2:21])
 
+names(mean.ioniper.vel) <- days1
+names(mean.odorper.vel) <- days2
+names(mean.ionitub.vel) <- days3
+names(mean.odortub.vel) <- days4
 
-mean.ioniper.acc <- ioniper.acc[,mean(2:21)]
-mean.odorper.acc <- odorper.acc[,mean(2:21)]
-mean.ionitub.acc <- ionitub.acc[,mean(2:21)]
-mean.odortub.acc <- odortub.acc[,mean(2:21)]
+mean.ioniper.acc <- rowMeans(ioniper.acc[, 2:21])
+mean.odorper.acc <- rowMeans(odorper.acc[, 2:21])
+mean.ionitub.acc <- rowMeans(ionitub.acc[, 2:21])
+mean.odortub.acc <- rowMeans(odortub.acc[, 2:21])
+
+names(mean.ioniper.acc) <- days1
+names(mean.odorper.acc) <- days2
+names(mean.ionitub.acc) <- days3
+names(mean.odortub.acc) <- days4
+
+####Standard Errors for objecst####
+
+# Remember, this is the standard error over the _collection of curves_
+# not a confidence interval for estimating each curve.
+
+sioniperd = std.fd(ioniperianthfd)
+sodorperd = std.fd(odorperianthfd)
+sionitubd = std.fd(ionitubefd)
+sodortubd = std.fd(odortubefd)
+
+#sioniperdvel = sd(ioniper.vel)/sqrt(length(ioniper.vel))
+#mean(ioniper.vel)-2*sioniperdvel
+#mean(ioniper.vel)+2*sioniperdvel
+#needs work for higher order functions
+
 
 
 ####Function Scratchwork####
