@@ -202,8 +202,8 @@ sodortubd = std.fd(odortubefd)
 #needs work for higher order functions
 
 
-higher_orders <- list(ioniper.vel, ioniper.acc, ionitub.vel, ionitub.acc, 
-                      odorper.vel, odorper.acc, odortub.vel, odortub.acc)
+higher_orders <- list(ioniper.vel[,2:21], ioniper.acc[,2:21], ionitub.vel[,2:21], ionitub.acc[,2:21], 
+                      odorper.vel[,2:21], odorper.acc[,2:21], odortub.vel[,2:21], odortub.acc[,2:21])
 
 ci_derivs <- function(i,...) {
     sd <- apply(i, 1, sd)
@@ -218,14 +218,14 @@ ci_derivs <- function(i,...) {
 }
 
 #this isn't pretty but i don't have time
-ioniper.vel.ci <- ci_derivs(ioniper.vel)
-ioniper.acc.ci <- ci_derivs(ioniper.acc)
-ionitub.vel.ci <- ci_derivs(ionitub.vel)
-ionitub.acc.ci <- ci_derivs(ionitub.acc)
-odorper.vel.ci <- ci_derivs(odorper.vel)
-odorper.acc.ci <- ci_derivs(odorper.acc)
-odortub.vel.ci <- ci_derivs(odortub.vel)
-odortub.acc.ci <- ci_derivs(odortub.acc)
+ioniper.vel.ci <- ci_derivs(ioniper.vel[,2:21])
+ioniper.acc.ci <- ci_derivs(ioniper.acc[,2:21])
+ionitub.vel.ci <- ci_derivs(ionitub.vel[,2:21])
+ionitub.acc.ci <- ci_derivs(ionitub.acc[,2:21])
+odorper.vel.ci <- ci_derivs(odorper.vel[,2:21])
+odorper.acc.ci <- ci_derivs(odorper.acc[,2:21])
+odortub.vel.ci <- ci_derivs(odortub.vel[,2:21])
+odortub.acc.ci <- ci_derivs(odortub.acc[,2:21])
 
 
 #ci_results <- lapply(higher_orders, sd_derivs)
@@ -271,5 +271,13 @@ m <- matrix(c(1:10, 11:20), nrow = 10, ncol = 2)
 apply(m,2,mean)
 
 
+#ok so what are the mean values that I have for tubes?
+plot(odortub.vel.ci$mean, x = 5:29, type="l", col="blue", ylim=c(-1.5,5))
+lines(ionitub.vel.ci$mean, x = 5:29,  col="purple")
+lines(mean.odortub.vel, x=5:29, col="blue")
+lines(mean.ionitub.vel, x=5:29, col="purple")
+abline(h=0)
 
 
+odortub.vel.ci$mean - mean.odortub.vel 
+ionitub.vel.ci$mean - mean.ionitub.vel
