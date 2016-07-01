@@ -202,6 +202,36 @@ sodortubd = std.fd(odortubefd)
 #needs work for higher order functions
 
 
+higher_orders <- list(ioniper.vel, ioniper.acc, ionitub.vel, ionitub.acc, 
+                      odorper.vel, odorper.acc, odortub.vel, odortub.acc)
+
+ci_derivs <- function(i,...) {
+    sd <- apply(i, 1, sd)
+    sq <- sqrt(apply(i, 1, length))
+    sterror <- sd/sq
+    mean <- apply(i, 1, mean)
+    lower95 <- mean - 2*sterror
+    upper95 <- mean + 2*sterror
+    result <- list(lower=lower95, mean=mean, upper=upper95)
+  
+    return(result)
+}
+
+#this isn't pretty but i don't have time
+ioniper.vel.ci <- ci_derivs(ioniper.vel)
+ioniper.acc.ci <- ci_derivs(ioniper.acc)
+ionitub.vel.ci <- ci_derivs(ionitub.vel)
+ionitub.acc.ci <- ci_derivs(ionitub.acc)
+odorper.vel.ci <- ci_derivs(odorper.vel)
+odorper.acc.ci <- ci_derivs(odorper.acc)
+odortub.vel.ci <- ci_derivs(odortub.vel)
+odortub.acc.ci <- ci_derivs(odortub.acc)
+
+
+#ci_results <- lapply(higher_orders, sd_derivs)
+#plot(ci_results[[1]]$mean)
+
+
 
 ####Function Scratchwork####
 
@@ -237,7 +267,8 @@ dim(ionipermat)
 
 
 
-
+m <- matrix(c(1:10, 11:20), nrow = 10, ncol = 2)
+apply(m,2,mean)
 
 
 

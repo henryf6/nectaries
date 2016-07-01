@@ -406,7 +406,94 @@ legend("topleft", legend = c("ioni tube", "odor tube"),
 dev.off()
 system('open ../figures/mean_growth_CI_structures.pdf')
 
+####Mean Velocity by strucutre with CI's####
+# need to fix x-axis, there has to be a quicker way
+names(ionitub.vel.ci$lower) <- 5:29
+names(ionitub.vel.ci$upper) <- 5:29
+names(ionitub.vel.ci$mean) <- 5:29
+names(ionitub.acc.ci$lower) <- 5:29
+names(ionitub.acc.ci$upper) <- 5:29
+names(ionitub.acc.ci$mean) <- 5:29
+names(odortub.vel.ci$lower) <- 5:29
+names(odortub.vel.ci$upper) <- 5:29
+names(odortub.vel.ci$mean) <- 5:29
+names(odortub.acc.ci$lower) <- 5:29
+names(odortub.acc.ci$upper) <- 5:29
+names(odortub.acc.ci$mean) <- 5:29
 
+pdf("../figures/mean_velocity_CI_structures.pdf", width = 10, height = 7)
+par(mfrow=c(2,1), family="Palatino")
+plot(ioniper.vel.ci$mean, type="l", lwd=2, col= "red", ylim = c(-.5, 5),
+     ylab = "Change in Growth (mm) per Day", xlab = "Days",
+     main="Mean Growth Velocity Curves for Perianth with Confidence Intervals")
+lines(odorper.vel.ci$mean, lwd=2, col= "black")
+lines(ioniper.vel.ci$upper, col = "red", lty = 3)
+lines(ioniper.vel.ci$lower, col = "red", lty = 3)
+lines(odorper.vel.ci$upper, col = "black", lty = 3)
+lines(odorper.vel.ci$lower, col = "black", lty = 3)
+abline(h=0, col="black")
+grid()
+legend("topleft", legend = c("ioni perianth", "odor perianth"), 
+       lty = 1, lwd = 2, col = c("red", "black"), ncol = 2,
+       bty = "n", cex = 0.8,
+       text.col = c("red", "black"), inset= 0.01)
+
+plot(ionitub.vel.ci$mean, x= 5:29,type="l", lwd=2, col= "purple", ylim = c(-1.5, 5),
+     ylab = "Change in Growth (mm) per Day", xlab = "Days",
+     main="Mean Growth Velocity Curves for Tube Length with Confidence Intervals")
+lines(odortub.vel.ci$mean, x = 5:29, lwd=2, col= "blue")
+lines(ionitub.vel.ci$upper, x = 5:29, col = "purple", lty = 3)
+lines(ionitub.vel.ci$lower, x = 5:29, col = "purple", lty = 3)
+lines(odortub.vel.ci$upper, x = 5:29, col = "blue", lty = 3)
+lines(odortub.vel.ci$lower, x = 5:29, col = "blue", lty = 3)
+abline(h=0, col="black")
+grid()
+legend("topleft", legend = c("ioni tube", "odor tube"), 
+       lty = 1, lwd = 2, col = c("purple", "blue"), ncol = 2,
+       bty = "n", cex = 0.8,
+       text.col = c("purple", "blue"), inset= 0.01)
+
+dev.off()
+system('open ../figures/mean_velocity_CI_structures.pdf')
+
+
+
+
+####Mean Acceleration by strucutre with CI's####
+pdf("../figures/mean_acceleration_CI_structures.pdf", width = 10, height = 7)
+par(mfrow=c(2,1), family="Palatino")
+
+plot(ioniper.acc.ci$mean, type="l", lwd=2, col= "red", ylim = c(-1.5, 5),
+     ylab = "Growth Acceleration", xlab = "Days",
+     main="Mean Growth Acceleration Curves Perianth with Confidence Intervals")
+lines(odorper.acc.ci$mean, lwd=2, col= "black")
+lines(ioniper.acc.ci$lower, col = "red", lty = 3)
+lines(ioniper.acc.ci$upper, col = "red", lty = 3)
+lines(odorper.acc.ci$lower, col= "black", lty = 3)
+lines(odorper.acc.ci$upper, col= "black", lty = 3)
+grid()
+legend("topleft", legend = c("ioni perianth", "odor perianth"), 
+       lty = 1, lwd = 2, col = c("red", "black"), ncol = 2,
+       bty = "n", cex = 0.8,
+       text.col = c("red", "black"), inset= 0.01)
+
+plot(ionitub.acc.ci$mean, x= 5:29,type="l", lwd=2, col= "purple", ylim = c(-1.5, 5),
+     ylab = "Growth Acceleration", xlab = "Days",
+     main="Mean Growth Acceleration Curves for Tube Length with Confidence Intervals")
+lines(odortub.acc.ci$mean, x = 5:29, lwd=2, col= "blue")
+lines(ionitub.acc.ci$upper, x = 5:29, col = "purple", lty = 3)
+lines(ionitub.acc.ci$lower, x = 5:29, col = "purple", lty = 3)
+lines(odortub.acc.ci$upper, x = 5:29, col = "blue", lty = 3)
+lines(odortub.acc.ci$lower, x = 5:29, col = "blue", lty = 3)
+abline(h=0, col="black")
+grid()
+legend("topleft", legend = c("ioni tube", "odor tube"), 
+       lty = 1, lwd = 2, col = c("purple", "blue"), ncol = 2,
+       bty = "n", cex = 0.8,
+       text.col = c("purple", "blue"), inset= 0.01)
+
+dev.off()
+system('open ../figures/mean_acceleration_CI_structures.pdf')
 
 
 ####Growth vs Growth plots####
