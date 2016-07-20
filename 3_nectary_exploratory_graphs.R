@@ -20,7 +20,7 @@ library(ggplot2)
 par(mfrow=c(3,1), family="Palatino")
 pdf("../figures/mean_growth.pdf", width = 10, height = 7)
 plot(mean.ioniper, lwd=2, col= "red", ylim = c(-.5, 30),
-     ylab = "Growth (mm)", xlab = "Days",
+     ylab = "Length (mm)", xlab = "Days",
      main="Mean Growth Curves for P. ionidiflorum and  P. odoratissimum of perianth and tube length "
      )
 lines(mean.odorper, lwd=2, col= "black")
@@ -36,7 +36,7 @@ legend("topleft", legend = c("ioni tube", "odor tube", "ioni perianth", "odor pe
 ####Mean velocity graphs for both tube and perianth####
 
 plot(mean.ioniper.vel, type="l", lwd=2, col= "red", ylim = c(-1, 5),
-     ylab = " Change in Growth (mm) per Day", xlab = "Days",
+     ylab = " Change in Length (mm) per Day", xlab = "Days",
      main="Mean Growth Velocity Curves for P. ionidiflorum and  P. odoratissimum of perianth and tube length "
 )
 lines(mean.odorper.vel, lwd=2, col= "black")
@@ -53,7 +53,7 @@ legend("topleft", legend = c("ioni tube", "odor tube", "ioni perianth", "odor pe
 ####Mean acceleration graphs for both tube and perianth####
 
 plot(mean.ioniper.acc, type="l", lwd=2, col= "red", ylim = c(-2, 3),
-     ylab = "Growth Acceleration", xlab = "Days",
+     ylab = "Length Acceleration", xlab = "Days",
      main="Mean Growth Acceleration Curves for P. ionidiflorum and  P. odoratissimum of perianth and tube length ")
 lines(mean.odorper.acc, lwd=2, col= "black")
 lines(mean.ionitub.acc, x=5:29, lwd=2, col= "purple")
@@ -71,7 +71,7 @@ system('open ../figures/mean_growth.pdf')
 par(mfrow=c(3,1), family="Palatino")
 pdf("../figures/mean_growth_ioni.pdf", width = 10, height = 7)
 plot(mean.ioniper, lwd=2, col= "red", ylim = c(-.5, 30),
-     ylab = "Growth (mm)", xlab = "Days",
+     ylab = "Length (mm)", xlab = "Days",
      main="Mean Growth Curves for P. ionidiflorum and  P. odoratissimum of perianth and tube length ")
 lines(mean.ionitube, lwd=2, col= "purple")
 abline(h=0, col="black")
@@ -81,7 +81,7 @@ legend("topleft", legend = c("ioni tube", "ioni perianth"),
        bty = "n", cex = 0.8,
        text.col = c("purple", "red"), inset= 0.1)
 plot(mean.ioniper.vel, type="l", lwd=2, col= "red", ylim = c(-.5, 5),
-     ylab = " Change in Growth (mm) per Day", xlab = "Days",
+     ylab = " Change in Length (mm) per Day", xlab = "Days",
      main="Mean Growth Velocity Curves for P. ionidiflorum and  P. odoratissimum of perianth and tube length ")
 lines(mean.ionitub.vel, x=5:29, lwd=2, col= "purple")
 abline(h=0, col="black")
@@ -108,7 +108,7 @@ system('open ../figures/mean_growth_ioni.pdf')
 par(mfrow=c(3,1), family="Palatino")
 pdf("../figures/mean_growth_odor.pdf", width = 10, height = 7)
 plot(mean.odorper, lwd=2, col= "black", ylim = c(-.5, 30),
-     ylab = "Growth (mm)", xlab = "Days",
+     ylab = "Length (mm)", xlab = "Days",
      main="Mean Growth Curves for P. odoratissimum of perianth and tube length ")
 abline(h=0, col="black")
 lines(mean.odortube, lwd=2, col= "blue")
@@ -119,7 +119,7 @@ legend("topleft", legend = c("odor tube", "odor perianth"),
        text.col = c("blue", "black"), inset= 0.1)
 
 plot(mean.odorper.vel, type="l", lwd=2, col= "black", ylim = c(-.5, 5),
-     ylab = " Change in Growth (mm) per Day", xlab = "Days",
+     ylab = " Change in Length (mm) per Day", xlab = "Days",
      main="Mean Growth Velocity Curves for P. odoratissimum of perianth and tube length ")
 abline(h=0, col="black")
 lines(mean.odortub.vel, x=5:29, lwd=2, col= "blue")
@@ -129,7 +129,7 @@ legend("topleft", legend = c("odor tube", "odor perianth"),
        bty = "n", cex = 0.8,
        text.col = c("blue", "black"), inset= 0.1)
 plot(mean.odorper.acc, type="l", lwd=2, col= "black", ylim = c(-2, 3),
-     ylab = "Growth Acceleration", xlab = "Days",
+     ylab = "Length Acceleration", xlab = "Days",
      main="Mean Growth Acceleration Curves P. odoratissimum of perianth and tube length ")
 abline(h=0, col="black")
 lines(mean.odortub.acc, x=5:29, lwd=2, col= "blue")
@@ -147,7 +147,7 @@ system('open ../figures/mean_growth_odor.pdf')
 par(mfrow=c(3,1), family="Palatino")
 pdf("../figures/mean_growth_perianth.pdf", width = 10, height = 7)
 plot(mean.ioniper, lwd=2, col= "red", ylim = c(-.5, 30),
-     ylab = "Growth (mm)", xlab = "Days",
+     ylab = "Length (mm)", xlab = "Days",
      main="Mean Growth Curves for Perianth"
 )
 lines(mean.odorper, lwd=2, col= "black")
@@ -157,7 +157,7 @@ legend("topleft", legend = c("ioni perianth", "odor perianth"),
        bty = "n", cex = 0.8,
        text.col = c("red", "black"), inset= 0.1)
 plot(mean.ioniper.vel, type="l", lwd=2, col= "red", ylim = c(-.5, 5),
-     ylab = "Change in Growth (mm) per Day", xlab = "Days",
+     ylab = "Change in Length (mm) per Day", xlab = "Days",
      main="Mean Growth Velocity Curves for Perianth"
 )
 lines(mean.odorper.vel, lwd=2, col= "black")
@@ -167,7 +167,7 @@ legend("topleft", legend = c("ioni perianth", "odor perianth"),
        bty = "n", cex = 0.8,
        text.col = c("red", "black"), inset= 0.1)
 plot(mean.ioniper.acc, type="l", lwd=2, col= "red", ylim = c(-.5, 3),
-     ylab = "Growth Acceleration", xlab = "Days",
+     ylab = "Length Acceleration", xlab = "Days",
      main="Mean Growth Acceleration Curves Perianth")
 lines(mean.odorper.acc, lwd=2, col= "black")
 grid()
@@ -184,7 +184,7 @@ system('open ../figures/mean_growth_perianth.pdf')
 par(mfrow=c(3,1), family="Palatino")
 pdf("../figures/mean_growth_tube.pdf", width = 10, height = 7)
 plot(mean.ionitube, lwd=2, col= "purple", ylim = c(-.5, 30),
-     ylab = "Growth (mm)", xlab = "Days",
+     ylab = "Length (mm)", xlab = "Days",
      main="Mean Growth Curves for Tube Length")
 lines(mean.odortube, lwd=2, col= "blue")
 abline(h=0, col="black")
@@ -194,7 +194,7 @@ legend("topleft", legend = c("ioni tube", "odor tube"),
        bty = "n", cex = 0.8,
        text.col = c("purple", "blue"), inset= 0.1)
 plot(mean.ionitub.vel,  x=5:29, type="l", lwd=2, col= "purple", ylim = c(-1, 5),
-     ylab = " Change in Growth (mm) per Day", xlab = "Days",
+     ylab = " Change in Length (mm) per Day", xlab = "Days",
      main="Mean Growth Velocity Curves for Tube Length ")
 lines(mean.odortub.vel, x=5:29, lwd=2, col= "blue")
 abline(h=0, col="black")
@@ -205,7 +205,7 @@ legend("topleft", legend = c("ioni tube", "odor tube"),
        text.col = c("purple", "blue"), inset= 0.1)
 
 plot(mean.ionitub.acc, x=5:29, type="l", lwd=2, col= "purple", ylim = c(-2, 3),
-     ylab = "Growth Acceleration", xlab = "Days",
+     ylab = "Length Acceleration", xlab = "Days",
      main="Mean Growth Acceleration Curves for P. ionidiflorum and  P. odoratissimum of perianth and tube length ")
 lines(mean.odortub.acc, x=5:29, lwd=2, col= "blue")
 abline(h=0, col="black")
@@ -223,7 +223,7 @@ pdf('../figures/ioni_perianth_compare_v1.pdf',w=6,h=8)
 par(mfrow=c(3,1),mar=c(4,3,3,1))
 # mean
 plot(days1, ioniperianthfit[,2], ylim=c(0,max(ionipermat)), 
-     xlab="Days", ylab="Growth (mm)", bty='n',las=1,main="P. ionidiflorum Perianth Growth",
+     xlab="Days", ylab="Length (mm)", bty='n',las=1,main="P. ionidiflorum Perianth Growth",
      typ='l', xlim=c(0,30))
 for (i in 2:ncasem1) {lines(days1, ioniperianthfit[,i], col=i)}
 lines(mean.ioniper, lwd = 3, lty= 6, col= 'black')
@@ -232,7 +232,7 @@ legend('topleft', legend= "mean", lwd = 3, lty= 6, ncol=2, col= 'black')
 
 # vel
 #ind <- velmhat[,i] >= 0 & velmhat[,i] <= 20
-plot(days1, ioniper.vel[,i], ylim=c(-2,5), xlim=c(0,30), type="l", xlab="Days", ylab="Growth Velocity",
+plot(days1, ioniper.vel[,i], ylim=c(-2,5), xlim=c(0,30), type="l", xlab="Days", ylab="Length Velocity",
      main="P. ionidiflorum Perianth Growth Velocity",bty='n')
 for (i in 2:ncasem1) {lines(days1,  ioniper.vel[,i], col=i)}
 lines(mean.ioniper.vel, lwd = 3, lty= 6, col= 'black')
@@ -240,7 +240,7 @@ abline(h=0, lty=2,col='grey50')
 
 # accel
 #ind <- accmhat[,i] >= -6 & accmhat[,i] <= 6
-plot(days1, ioniper.acc[,i], ylim=c(-2,3), xlim=c(0,30), type="l", xlab="Days", ylab="Growth Acceleration",
+plot(days1, ioniper.acc[,i], ylim=c(-2,3), xlim=c(0,30), type="l", xlab="Days", ylab="Length Acceleration",
      main="P. ionidiflorum Growth Perianth Acceleration", bty='n')
 for (i in 2:ncasem1) {lines(days1,  ioniper.acc[,i], col=i)}
 lines(mean.ioniper.acc, lwd = 3, lty= 6, col= 'black')
@@ -255,7 +255,7 @@ pdf('../figures/ioni_tube_compare_v1.pdf',w=6,h=8)
 par(mfrow=c(3,1),mar=c(4,3,3,1))
 # mean
 plot(days3, ionitubefit[,2], ylim=c(0,max(ionitubmat)), 
-     xlab="Days",bty='n',las=1,main="P. ionidiflorum Tube Growth",
+     xlab="Days", ylab="Length (mm)",bty='n',las=1,main="P. ionidiflorum Tube Growth",
      typ='l', xlim=c(5,30))
 for (i in 2:ncasem3) {lines(days3, ionitubefit[,i], col=i)}
 lines(mean.ionitube, lwd = 3, lty= 6, col= 'black')
@@ -264,7 +264,7 @@ legend('topleft', legend= "mean", lwd = 3, lty= 6, ncol=2, col= 'black')
 
 # vel
 #ind <- velmhat[,i] >= 0 & velmhat[,i] <= 20
-plot(days3, ionitub.vel[,i], ylim=c(-2,5), xlim=c(5,30), type="l", xlab="Days", ylab="Growth Velocity",
+plot(days3, ionitub.vel[,i], ylim=c(-2,5), xlim=c(5,30), type="l", xlab="Days", ylab="Length Velocity",
      main="P. ionidiflorum Tube Growth Velocity",bty='n')
 for (i in 2:ncasem3) {lines(days3,  ionitub.vel[,i], col=i)}
 lines(mean.ionitub.vel, x=5:29, lwd = 3, lty= 6, col= 'black')
@@ -272,7 +272,7 @@ abline(h=0, lty=2,col='grey50')
 
 # accel
 #ind <- accmhat[,i] >= -6 & accmhat[,i] <= 6
-plot(days3, ionitub.acc[,i], ylim=c(-2,3), xlim=c(5,30), type="l", xlab="Days", ylab="Growth Acceleration",
+plot(days3, ionitub.acc[,i], ylim=c(-2,3), xlim=c(5,30), type="l", xlab="Days", ylab="Length Acceleration",
      main="P. ionidiflorum Tube Growth Acceleration", bty='n')
 for (i in 2:ncasem3) {lines(days3,  ionitub.acc[,i], col=i)}
 lines(mean.ionitub.acc, x=5:29, lwd = 3, lty= 6, col= 'black')
@@ -287,7 +287,7 @@ pdf('../figures/odor_perianth_compare_v1.pdf',w=6,h=8)
 par(mfrow=c(3,1),mar=c(4,3,3,1))
 # mean
 plot(days2, odorperianthfit[,2], ylim=c(0,max(odorpermat)), 
-     xlab="Days",bty='n',las=1,main="P. odoratissimum Perianth Growth",
+     xlab="Days",ylab="Length (mm)",bty='n',las=1,main="P. odoratissimum Perianth Growth",
      typ='l', xlim=c(1,30))
 for (i in 2:ncasem2) {lines(days2, odorperianthfit[,i], col=i)}
 lines(mean.odorper, lwd = 3, lty= 6, col= 'black')
@@ -296,7 +296,7 @@ legend('topleft', legend= "mean", lwd = 3, lty= 6, ncol=2, col= 'black')
 
 # vel
 #ind <- velmhat[,i] >= 0 & velmhat[,i] <= 20
-plot(days2, odorper.vel[,i], ylim=c(-2,5), xlim=c(1,30), type="l", xlab="Days", ylab="Growth Velocity",
+plot(days2, odorper.vel[,i], ylim=c(-2,5), xlim=c(1,30), type="l", xlab="Days", ylab="Length Velocity",
      main="P. odoratissimum Perianth Growth Velocity",bty='n')
 for (i in 2:ncasem2) {lines(days2,  odorper.vel[,i], col=i)}
 lines(mean.odorper.vel, x=1:29, lwd = 3, lty= 6, col= 'black')
@@ -304,7 +304,7 @@ abline(h=0, lty=2,col='grey50')
 
 # accel
 #ind <- accmhat[,i] >= -6 & accmhat[,i] <= 6
-plot(days2, odorper.acc[,i], ylim=c(-2,3), xlim=c(1,30), type="l", xlab="Days", ylab="Growth Acceleration",
+plot(days2, odorper.acc[,i], ylim=c(-2,3), xlim=c(1,30), type="l", xlab="Days", ylab="Length Acceleration",
      main="P. odoratissimum Perianth Growth Acceleration", bty='n')
 for (i in 2:ncasem2) {lines(days2,  odorper.acc[,i], col=i)}
 lines(mean.odorper.acc, lwd = 3, lty= 6, col= 'black')
@@ -322,7 +322,7 @@ pdf('../figures/odor_tube_compare_v1.pdf',w=6,h=8)
 par(mfrow=c(3,1),mar=c(4,3,3,1))
 # mean
 plot(days4, odortubefit[,2], ylim=c(0,max(odorpermat)), 
-     xlab="Days",bty='n',las=1,main="P. odoratissimum Tube Growth",
+     xlab="Days",ylab="Length (mm)", bty='n',las=1,main="P. odoratissimum Tube Growth",
      typ='l', xlim=c(5,30))
 for (i in 2:ncasem4) {lines(days4, odortubefit[,i], col=i)}
 lines(mean.odortube, lwd = 3, lty= 6, col= 'black')
@@ -331,7 +331,7 @@ legend('topleft', legend= "mean", lwd = 3, lty= 6, ncol=2, col= 'black')
 
 # vel
 #ind <- velmhat[,i] >= 0 & velmhat[,i] <= 20
-plot(days4, odortub.vel[,i], ylim=c(-1,5), xlim=c(5,30), type="l", xlab="Days", ylab="Growth Velocity",
+plot(days4, odortub.vel[,i], ylim=c(-1,5), xlim=c(5,30), type="l", xlab="Days", ylab="Length Velocity",
      main="P. odoratissimum Tube Growth Velocity",bty='n')
 for (i in 2:ncasem4) {lines(days4,  odortub.vel[,i], col=i)}
 lines(mean.odortub.vel, x=5:29, lwd = 3, lty= 6, col= 'black')
@@ -339,7 +339,7 @@ abline(h=0, lty=2,col='grey50')
 
 # accel
 #ind <- accmhat[,i] >= -6 & accmhat[,i] <= 6
-plot(days4, odortub.acc[,i], ylim=c(-2,3), xlim=c(5,30), type="l", xlab="Days", ylab="Growth Acceleration",
+plot(days4, odortub.acc[,i], ylim=c(-2,3), xlim=c(5,30), type="l", xlab="Days", ylab="Length Acceleration",
      main="P. odoratissimum Tube Growth Acceleration", bty='n')
 for (i in 2:ncasem4) {lines(days4,  odortub.acc[,i], col=i)}
 lines(mean.odortub.acc, x=5:29, lwd = 3, lty= 6, col= 'black')
@@ -373,7 +373,7 @@ system('open ../figures/mean_phase_plot.pdf')
 pdf("../figures/mean_growth_CI_structures.pdf", width = 10, height = 7)
 par(mfrow=c(2,1), family="Palatino")
 plot(mean.ioniper, lwd=2, col= "red", ylim = c(-.5, 30),
-     ylab = "Growth (mm)", xlab = "Days",
+     ylab = "Length (mm)", xlab = "Days",
      main="Mean Growth Curves for Perianth with Confidence Intervals")
 lines(mean.odorper, lwd=2, col= "black")
 lines(mean.ioniper + 2*sioniperd, col="red", lty=3)
@@ -390,7 +390,7 @@ legend("topleft", legend = c("ioni perianth", "odor perianth"),
 
 
 plot(mean.ionitube, lwd=2, col= "purple", ylim = c(-.5, 40),
-     ylab = "Growth (mm)", xlab = "Days",
+     ylab = "Length (mm)", xlab = "Days",
      main="Mean Growth Curves for Tube Length with Confidence Intervals")
 lines(mean.odortube, lwd=2, col= "blue")
 lines(mean.ionitube + 2*sionitubd, col= "purple", lty=3)
@@ -424,7 +424,7 @@ names(odortub.acc.ci$mean) <- 5:29
 pdf("../figures/mean_velocity_CI_structures.pdf", width = 10, height = 7)
 par(mfrow=c(2,1), family="Palatino")
 plot(ioniper.vel.ci$mean, type="l", lwd=2, col= "red", ylim = c(-.5, 5),
-     ylab = "Change in Growth (mm) per Day", xlab = "Days",
+     ylab = "Change in Length (mm) per Day", xlab = "Days",
      main="Mean Growth Velocity Curves for Perianth with Confidence Intervals")
 lines(odorper.vel.ci$mean, lwd=2, col= "black")
 lines(ioniper.vel.ci$upper, col = "red", lty = 3)
@@ -439,7 +439,7 @@ legend("topleft", legend = c("ioni perianth", "odor perianth"),
        text.col = c("red", "black"), inset= 0.01)
 
 plot(ionitub.vel.ci$mean, x= 5:29,type="l", lwd=2, col= "purple", ylim = c(-1.5, 5),
-     ylab = "Change in Growth (mm) per Day", xlab = "Days",
+     ylab = "Change in Length (mm) per Day", xlab = "Days",
      main="Mean Growth Velocity Curves for Tube Length with Confidence Intervals")
 lines(odortub.vel.ci$mean, x = 5:29, lwd=2, col= "blue")
 lines(ionitub.vel.ci$upper, x = 5:29, col = "purple", lty = 3)
@@ -464,7 +464,7 @@ pdf("../figures/mean_acceleration_CI_structures.pdf", width = 10, height = 7)
 par(mfrow=c(2,1), family="Palatino")
 
 plot(ioniper.acc.ci$mean, type="l", lwd=2, col= "red", ylim = c(-1.5, 5),
-     ylab = "Growth Acceleration", xlab = "Days",
+     ylab = "Length Acceleration", xlab = "Days",
      main="Mean Growth Acceleration Curves Perianth with Confidence Intervals")
 lines(odorper.acc.ci$mean, lwd=2, col= "black")
 lines(ioniper.acc.ci$lower, col = "red", lty = 3)
@@ -478,7 +478,7 @@ legend("topleft", legend = c("ioni perianth", "odor perianth"),
        text.col = c("red", "black"), inset= 0.01)
 
 plot(ionitub.acc.ci$mean, x= 5:29,type="l", lwd=2, col= "purple", ylim = c(-1.5, 5),
-     ylab = "Growth Acceleration", xlab = "Days",
+     ylab = "Length Acceleration", xlab = "Days",
      main="Mean Growth Acceleration Curves for Tube Length with Confidence Intervals")
 lines(odortub.acc.ci$mean, x = 5:29, lwd=2, col= "blue")
 lines(ionitub.acc.ci$upper, x = 5:29, col = "purple", lty = 3)
